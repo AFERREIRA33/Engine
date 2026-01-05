@@ -1,0 +1,24 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Plugins/">
+    <Project Path="Plugins/FileFormat_obj/FileFormat_obj.vcxproj" Id="835e6f60-09d6-427a-9fc9-39d8c77a42c1">
+      <BuildDependency Project="Engine/Engine.vcxproj" />
+    </Project>
+    <Project Path="Plugins/FileFormat_stbimage/FileFormat_stbimage.vcxproj" Id="3d8266c1-c00f-4871-8589-76757d1fce2b">
+      <BuildDependency Project="Engine/Engine.vcxproj" />
+    </Project>
+  </Folder>
+  <Project Path="App/App.vcxproj" Id="8a20205c-0f99-47ac-bfc2-b19c1216d138">
+    <BuildDependency Project="Engine/Engine.vcxproj" />
+    <BuildDependency Project="ImGui/ImGui.vcxproj" />
+    <BuildDependency Project="Plugins/FileFormat_obj/FileFormat_obj.vcxproj" />
+    <BuildDependency Project="Plugins/FileFormat_stbimage/FileFormat_stbimage.vcxproj" />
+  </Project>
+  <Project Path="Engine/Engine.vcxproj" Id="f82ebd39-57dd-43be-9c27-1319c7668459" />
+  <Project Path="ImGui/ImGui.vcxproj" Id="7ed653d9-3a6c-42e5-bf10-806225c08e14">
+    <BuildDependency Project="Engine/Engine.vcxproj" />
+  </Project>
+</Solution>

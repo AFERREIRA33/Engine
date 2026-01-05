@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{d9fb1780-8493-4a99-b5f7-b711f01a6551}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{bced3879-6ae9-48c1-af1c-2c3cbba03812}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\gpu">
+      <UniqueIdentifier>{f36914e0-aa02-4bba-9340-b35f2b5b8b1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util">
+      <UniqueIdentifier>{972bdf75-ddec-4c1d-8ee8-52ec30362228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\gpu">
+      <UniqueIdentifier>{a08871ef-20db-4115-8481-38c9471f943a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core\assets">
+      <UniqueIdentifier>{ec1ffc5c-e584-4258-98ef-8f5c4bda14e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\assets">
+      <UniqueIdentifier>{27b45794-4dd0-4c9c-874f-d966a2d74fe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\core\gpu_detail">
+      <UniqueIdentifier>{e03286b0-e2a8-4e78-8b76-38c809d65b09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{88cc07ad-a57e-41ed-9b9a-66f3872e9af7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shader files">
+      <UniqueIdentifier>{3b54dc62-5be3-41c4-9661-2d7a8102d055}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\graphics">
+      <UniqueIdentifier>{57a153bd-6c6d-4e0e-81aa-0d74169769d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\graphics">
+      <UniqueIdentifier>{d8b20c86-cf18-4a50-a9fe-05204d64bb36}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\window_impl_glfw_vulkan.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\graphicscontext_impl_vulkan.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\commandbuffer_impl_vulkan.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\image_impl_vulkan.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\commandpool_impl_vulkan.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\enums.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\shader_impl_vulkan.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\pipeline_impl_vulkan.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\descriptorpool_impl_vulkan.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\descriptorset_impl_vulkan.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\shader_impl_vulkan__reflect.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\buffer_impl_vulkan.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu\shader.cpp">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\assets\assetsource.cpp">
+      <Filter>Source Files\core\assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\assets\textureasset.cpp">
+      <Filter>Source Files\core\assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\assets\shaderasset.cpp">
+      <Filter>Source Files\core\assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu_detail\vk_images.cpp">
+      <Filter>Source Files\core\gpu_detail</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu_detail\vk_initializers.cpp">
+      <Filter>Source Files\core\gpu_detail</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\pluginregistry.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\assets\meshasset.cpp">
+      <Filter>Source Files\core\assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\gpu_detail\vk_converters.cpp">
+      <Filter>Source Files\core\gpu_detail</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\stringhash.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\property.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\mesh.cpp">
+      <Filter>Source Files\graphics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\core\window.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\window_impl_glfw_vulkan.h">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\graphicscontext_impl_vulkan.h">
+      <Filter>Source Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\gpu\commandbuffer.h">
+      <Filter>Header Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\graphicscontext.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\badge.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu\commandbuffer_impl_vulkan.h">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\gpu\image.h">
+      <Filter>Header Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu\image_impl_vulkan.h">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\gpu\commandpool.h">
+      <Filter>Header Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu\commandpool_impl_vulkan.h">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\gpu\enums.h">
+      <Filter>Header Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\gpu\shader.h">
+      <Filter>Header Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu\shader_impl_vulkan.h">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\gpu\pipeline.h">
+      <Filter>Header Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu\pipeline_impl_vulkan.h">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\gpu\descriptorpool.h">
+      <Filter>Header Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu\descriptorpool_impl_vulkan.h">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\gpu\descriptorset.h">
+      <Filter>Header Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu\descriptorset_impl_vulkan.h">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu\shader_impl_vulkan__reflect.h">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\gpu\buffer.h">
+      <Filter>Header Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu\buffer_impl_vulkan.h">
+      <Filter>Source Files\core\gpu</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\assets\assetsource.h">
+      <Filter>Header Files\core\assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\assets\asset.h">
+      <Filter>Header Files\core\assets</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu_detail\vk_images.h">
+      <Filter>Source Files\core\gpu_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu_detail\vk_initializers.h">
+      <Filter>Source Files\core\gpu_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu_detail\vk_types.h">
+      <Filter>Source Files\core\gpu_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\plugin.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\pluginregistry.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\globalinstance.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\gpu_detail\vk_converters.h">
+      <Filter>Source Files\core\gpu_detail</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\property.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\stringhash.h">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\graphics\mesh.h">
+      <Filter>Header Files\graphics</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
