@@ -227,4 +227,7 @@
       <Filter>Header Files\graphics</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
 </Project>

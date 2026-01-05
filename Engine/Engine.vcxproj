@@ -225,6 +225,9 @@
     <ClInclude Include="src\core\graphicscontext_impl_vulkan.h" />
     <ClInclude Include="src\core\window_impl_glfw_vulkan.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
