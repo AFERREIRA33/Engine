@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 	vde::util::PluginRegistry::Global().Context().graphicsContext = graphicsContext.get();
 	vde::util::PluginRegistry::Global().LoadAllFromDirectory("engine/plugins");
 
-	vde::core::assets::Asset<vde::graphics::Mesh> teaCup(std::make_unique<vde::core::assets::FileAssetSource>("assets/monkey.obj"));
+	auto teaCup = std::make_unique<vde::core::assets::Asset<vde::graphics::Mesh>>(std::make_unique<vde::core::assets::FileAssetSource>("assets/monkey.obj"));
 	
 	auto vb = graphicsContext->CreateBuffer<glm::vec3>(4, vde::core::gpu::EBufferUsageBits::VertexBuffer | vde::core::gpu::EBufferUsageBits::CanUpload);
 	vb->Upload(positions);
@@ -98,7 +98,7 @@ int main(int argc, char** argv)
 			{
 				rendering->UpdatePushConstants(vde::core::gpu::EShaderStage::Vertex, cameraDataStore);
 				rendering->SetViewport({ 0, 0 }, { graphicsContext->Backbuffer().Size() });
-				teaCup.Value().Draw(*rendering);
+				teaCup->Value().Draw(*rendering);
 				//rendering->DrawIndexed({ vb.get(), cb.get() }, ib.get(), 6);
 			}
 		}
@@ -117,6 +117,8 @@ int main(int argc, char** argv)
 	} while (!window->ShouldClose());
 
 	graphicsContext->WaitForIdle();
+
+	teaCup.reset();  // Explicitly free the mesh
 
 	ib.reset();
 	cb.reset();
