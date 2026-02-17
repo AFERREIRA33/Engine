@@ -11,8 +11,12 @@
 #include <graphics/mesh.h>
 
 #include <core/assets/asset.h>
+#include <core/job_system/jobsystem.h>
 
 #include <array>
+#include <atomic>
+#include <cassert>
+#include <vector>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -34,8 +38,90 @@ std::array<glm::vec3, 4> colors = {
 
 std::array<uint32_t, 6> indices = { 0, 1, 2, 0, 2, 3 };
 
+// -------------------------------------------------------------------
+// Test du Job System avec un DAG en diamant :
+//
+//   A ---\
+//         +--> C --> D
+//   B ---/
+//
+// A et B sont des roots sans dependances (s'executent en parallele).
+// C depend de A et B (attend les deux).
+// D depend de C.
+// -------------------------------------------------------------------
+void TestJobSystemDAG()
+{
+	using namespace vde::core::job_system;
+
+	auto& js = JobSystem::Global();
+	js.Initialize();
+
+	std::cout << "[JobSystem] Demarre avec "
+	          << js.WorkerCount() << " workers.\n";
+
+	// Etat partage pour verifier l'ordre d'execution.
+	std::atomic<int> resultA { 0 };
+	std::atomic<int> resultB { 0 };
+	std::atomic<int> resultC { 0 };
+	std::atomic<int> resultD { 0 };
+
+	// Job A : pas de dependances.
+	auto jobA = js.Schedule([&]()
+	{
+		for (volatile int i = 0; i < 100000; ++i) {}
+		resultA.store(10, std::memory_order_relaxed);
+		std::cout << "[Job A] termine, resultA = 10\n";
+	});
+
+	// Job B : pas de dependances.
+	auto jobB = js.Schedule([&]()
+	{
+		for (volatile int i = 0; i < 100000; ++i) {}
+		resultB.store(20, std::memory_order_relaxed);
+		std::cout << "[Job B] termine, resultB = 20\n";
+	});
+
+	// Job C : depend de A et B. Lit leurs resultats.
+	std::vector<JobHandle> depsAB = { jobA, jobB };
+	auto jobC = js.Schedule([&]()
+	{
+		int sum = resultA.load(std::memory_order_relaxed)
+		        + resultB.load(std::memory_order_relaxed);
+		resultC.store(sum, std::memory_order_relaxed);
+		std::cout << "[Job C] termine, resultC = "
+		          << sum << " (attendu 30)\n";
+	}, depsAB);
+
+	// Job D : depend de C.
+	std::vector<JobHandle> depsC = { jobC };
+	auto jobD = js.Schedule([&]()
+	{
+		int doubled = resultC.load(std::memory_order_relaxed) * 2;
+		resultD.store(doubled, std::memory_order_relaxed);
+		std::cout << "[Job D] termine, resultD = "
+		          << doubled << " (attendu 60)\n";
+	}, depsC);
+
+	// Attendre que tout soit fini.
+	js.WaitForAll();
+
+	// Verifier les resultats.
+	assert(resultA.load() == 10);
+	assert(resultB.load() == 20);
+	assert(resultC.load() == 30);
+	assert(resultD.load() == 60);
+
+	std::cout << "[JobSystem] Toutes les assertions passent ! "
+	          << "Le DAG s'est execute correctement.\n";
+
+	js.Shutdown();
+}
+
 int main(int argc, char** argv)
 {
+	// --- Test du Job System ---
+	TestJobSystemDAG();
+	std::cout << "\n";
 	auto window = std::make_unique<vde::core::Window>(vde::core::WindowDescriptor{ {1600, 900}, "Hello VDE", false });
 	auto graphicsContext = std::make_unique<vde::core::GraphicsContext>(*window);
 

@@ -187,6 +187,7 @@
     <ClCompile Include="src\util\pluginregistry.cpp" />
     <ClCompile Include="src\util\property.cpp" />
     <ClCompile Include="src\util\stringhash.cpp" />
+    <ClCompile Include="src\core\job_system\jobsystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\core\assets\asset.h" />
@@ -224,6 +225,9 @@
     <ClInclude Include="src\core\gpu_detail\vk_types.h" />
     <ClInclude Include="src\core\graphicscontext_impl_vulkan.h" />
     <ClInclude Include="src\core\window_impl_glfw_vulkan.h" />
+    <ClInclude Include="include\core\job_system\job.h" />
+    <ClInclude Include="include\core\job_system\threadsafequeue.h" />
+    <ClInclude Include="include\core\job_system\jobsystem.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
